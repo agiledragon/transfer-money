@@ -2,7 +2,9 @@
 
 
 AccountApi::AccountApi()
-: accountService(AccountService()), withdrawerService(WithdrawMoneyService())
+: accountService(AccountService()), withdrawMoneyService(WithdrawMoneyService())
+, transferMoneyToLocalService(TransferMoneyToLocalService())
+, transferMoneyService(TransferMoneyService())
 {
 
 }
@@ -19,14 +21,19 @@ void AccountApi::destroyAccount(const std::string& accountId)
 	accountService.destroyAccount(accountId);
 }
 
-void AccountApi::withdraw(const std::string& accountId, U32 amount)
+void AccountApi::withdrawMoney(const std::string& accountId, U32 amount)
 {
-	withdrawerService.exec(accountId, amount);
+	withdrawMoneyService.exec(accountId, amount);
 }
 
 U32 AccountApi::getAmount(const std::string& accountId)
 {
-	return withdrawerService.getAmount(accountId);
+	return transferMoneyService.getAmount(accountId);
+}
+
+void AccountApi::transferMoneyToLocal(const std::string& fromId, const std::string& toId, U32 amount)
+{
+	transferMoneyToLocalService.exec(fromId, toId, amount);
 }
 
 std::string AccountApi::generateAccountId(const std::string& phoneNumber)

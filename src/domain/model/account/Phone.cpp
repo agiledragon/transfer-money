@@ -15,5 +15,18 @@ bool Phone::operator==(ValueObject* rhs)
 
 void Phone::sendWithdrawMsg(U32 amount)
 {
-	INFO_LOG("send msg to phone(%s) that %u yuan has been withdrawed from accountId(%s)!", phoneNumber.c_str(), amount, ROLE(AccountInfo).getAccountId().c_str());
+	INFO_LOG("phone(%s): %u yuan has been withdrawed from accountId(%s)!",
+			phoneNumber.c_str(), amount, ROLE(AccountInfo).getAccountId().c_str());
+}
+
+void Phone::sendTransferToMsg(const std::string& toId, U32 amount)
+{
+	INFO_LOG("phone(%s): accountId(%s) send %u yuan to accountId(%s)!",
+			phoneNumber.c_str(), ROLE(AccountInfo).getAccountId().c_str(), amount, toId.c_str());
+}
+
+void Phone::sendTransferFromMsg(const std::string& fromId, U32 amount)
+{
+	INFO_LOG("phone(%s): accountId(%s) receive %u yuan from accountId(%s)!",
+			phoneNumber.c_str(), ROLE(AccountInfo).getAccountId().c_str(), amount, fromId.c_str());
 }

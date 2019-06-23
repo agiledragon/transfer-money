@@ -10,7 +10,6 @@ struct WithdrawMoneyService
 {
 	WithdrawMoneyService();
 	void exec(const std::string& accountId, U32 amount);
-	U32 getAmount(const std::string& accountId) const;
 
 private:
 	AccountRepo* repo;

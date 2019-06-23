@@ -4,6 +4,8 @@
 
 #include "domain/model/base/AggregateRoot.h"
 #include "domain/model/account/MoneyCollector.h"
+#include "domain/model/account/MoneySrc.h"
+#include "domain/model/account/MoneyDest.h"
 #include "domain/model/account/Phone.h"
 #include "domain/model/account/AccountInfo.h"
 #include "domain/model/account/Balance.h"
@@ -11,6 +13,8 @@
 
 struct Account : AggregateRoot
 			   , MoneyCollector
+			   , MoneySrc
+			   , MoneyDest
 			   , private AccountInfo
 			   , private Balance
 			   , private Phone

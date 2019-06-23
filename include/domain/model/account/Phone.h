@@ -17,6 +17,8 @@ struct Phone : ValueObject
 	OVERRIDE(bool operator==(ValueObject* rhs));
 
 	void sendWithdrawMsg(U32 amount);
+	void sendTransferToMsg(const std::string& toId, U32 amount);
+	void sendTransferFromMsg(const std::string& fromId, U32 amount);
 
 private:
 	USE_ROLE(AccountInfo);

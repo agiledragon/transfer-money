@@ -71,28 +71,42 @@ protected:
 		setAccountRepo(accountRepo);
 		api = new AccountApi();
 		jimPhoneNumber = "19999999999";
-		jmAccountId = api->createAccount(jimPhoneNumber, JIM_INIT_AMOUNT);
+		jimAccountId = api->createAccount(jimPhoneNumber, JIM_INIT_AMOUNT);
+		lucyPhoneNumber = "18888888888";
+		lucyAccountId = api->createAccount(lucyPhoneNumber, LUCY_INIT_AMOUNT);
 	}
 
 	virtual void TearDown()
 	{
-		api->destroyAccount(jmAccountId);
+		api->destroyAccount(jimAccountId);
+		api->destroyAccount(lucyAccountId);
 		delete api;
 		delete accountRepo;
 	}
 
 protected:
 	std::string jimPhoneNumber;
+	std::string lucyPhoneNumber;
 	AccountApi* api;
-	std::string jmAccountId;
+	std::string jimAccountId;
+	std::string lucyAccountId;
 	FakeAccountRepo* accountRepo;
 	const U32 JIM_INIT_AMOUNT{10000};
+	const U32 LUCY_INIT_AMOUNT{5000};
 };
 
-TEST_F(TestAccount, withdraw)
+TEST_F(TestAccount, withdraw_money)
 {
 	const U32 AMOUNT = 1500;
-	api->withdraw(jmAccountId, AMOUNT);
-	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jmAccountId));
+	api->withdrawMoney(jimAccountId, AMOUNT);
+	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
+}
+
+TEST_F(TestAccount, transfer_money_to_local)
+{
+	const U32 AMOUNT = 1500;
+	api->transferMoneyToLocal(jimAccountId, lucyAccountId, AMOUNT);
+	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
+	ASSERT_EQ(LUCY_INIT_AMOUNT + AMOUNT, api->getAmount(lucyAccountId));
 }
 
