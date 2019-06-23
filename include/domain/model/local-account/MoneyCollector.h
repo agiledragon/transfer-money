@@ -2,9 +2,8 @@
 #define H29CD13D2_4382_4E06_99DA_B499B523F6EE
 
 
-#include "domain/model/base/Role.h"
-#include "pub/base/Types.h"
-
+#include <domain/model/base/Role.h>
+#include <pub/base/Types.h>
 #include <string>
 
 struct Balance;

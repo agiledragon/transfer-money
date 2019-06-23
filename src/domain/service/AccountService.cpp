@@ -1,16 +1,16 @@
-#include "domain/service/AccountService.h"
-#include "domain/model/account/Account.h"
-#include "domain/model/account/AccountRepo.h"
-#include "domain/model/base/Role.h"
+#include <domain/model/local-account/LocalAccount.h>
+#include <domain/service/AccountService.h>
+#include <domain/model/base/Role.h>
+#include <domain/model/local-account/LocalAccountRepo.h>
 
 AccountService::AccountService()
 {
-	repo = getAccountRepo();
+	repo = getLocalAccountRepo();
 }
 
 std::string AccountService::createAccount(const std::string& accountId, const std::string& phoneNumber, U32 initAmount)
 {
-	auto account = new Account(accountId, phoneNumber, initAmount);
+	auto account = new LocalAccount(accountId, phoneNumber, initAmount);
 	repo->add(account);
 	return accountId;
 }

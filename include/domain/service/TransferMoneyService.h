@@ -2,10 +2,10 @@
 #define HF8215D25_4C3E_42B3_9C90_D8CA3450788C
 
 
-#include "pub/base/Types.h"
+#include <pub/base/Types.h>
 #include <string>
 
-struct AccountRepo;
+struct LocalAccountRepo;
 
 struct TransferMoneyService
 {
@@ -13,7 +13,7 @@ struct TransferMoneyService
 	U32 getAmount(const std::string& accountId) const;
 
 private:
-	AccountRepo* repo;
+	LocalAccountRepo* repo;
 };
 
 

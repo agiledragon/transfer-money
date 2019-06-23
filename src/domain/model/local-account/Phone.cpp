@@ -1,6 +1,6 @@
-#include "domain/model/account/Phone.h"
-#include "domain/model/account/AccountInfo.h"
-#include "pub/log/log.h"
+#include <domain/model/comm-role/AccountInfo.h>
+#include <domain/model/local-account/Phone.h>
+#include <pub/log/log.h>
 
 
 Phone::Phone(const std::string& phoneNumber) : phoneNumber(phoneNumber)

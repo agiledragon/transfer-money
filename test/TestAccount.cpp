@@ -1,20 +1,20 @@
-#include "gtest/gtest.h"
-#include "app/service/AccountApi.h"
-#include "domain/model/account/Account.h"
-#include "domain/model/account/AccountRepo.h"
+#include <domain/model/local-account/LocalAccount.h>
+#include <gtest/gtest.h>
+#include <app/service/AccountApi.h>
+#include <domain/model/local-account/LocalAccountRepo.h>
 #include <vector>
 #include <string>
 
 namespace
 {
-	struct FakeAccountRepo : AccountRepo
+	struct FakeAccountRepo : LocalAccountRepo
 	{
-		OVERRIDE(void add(Account* account))
+		OVERRIDE(void add(LocalAccount* account))
 		{
 			accounts.push_back(account);
 		}
 
-		OVERRIDE(Account* get(const std::string& accountId))
+		OVERRIDE(LocalAccount* get(const std::string& accountId))
 		{
 			for (auto a : accounts)
 			{
@@ -27,7 +27,7 @@ namespace
 		}
 
 		//simulate dbs operation
-		OVERRIDE(void update(Account* account))
+		OVERRIDE(void update(LocalAccount* account))
 		{
 			for (auto a : accounts)
 			{
@@ -41,7 +41,7 @@ namespace
 
 		}
 
-		OVERRIDE(Account* remove(const std::string& accountId))
+		OVERRIDE(LocalAccount* remove(const std::string& accountId))
 		{
 			int i = 0;
 			for (auto a : accounts)
@@ -57,7 +57,7 @@ namespace
 		}
 
 	private:
-		std::vector<Account*> accounts;
+		std::vector<LocalAccount*> accounts;
 	};
 }
 
@@ -68,7 +68,7 @@ protected:
 	virtual void SetUp()
 	{
 		accountRepo = new FakeAccountRepo();
-		setAccountRepo(accountRepo);
+		setLocalAccountRepo(accountRepo);
 		api = new AccountApi();
 		jimPhoneNumber = "19999999999";
 		jimAccountId = api->createAccount(jimPhoneNumber, JIM_INIT_AMOUNT);
@@ -108,5 +108,12 @@ TEST_F(TestAccount, transfer_money_to_local)
 	api->transferMoneyToLocal(jimAccountId, lucyAccountId, AMOUNT);
 	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 	ASSERT_EQ(LUCY_INIT_AMOUNT + AMOUNT, api->getAmount(lucyAccountId));
+}
+
+TEST_F(TestAccount, transfer_money_to_remote)
+{
+	const U32 AMOUNT = 1500;
+	api->transferMoneyToRemote(jimAccountId, lucyAccountId, AMOUNT);
+	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 }
 

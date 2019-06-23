@@ -1,4 +1,4 @@
-#include "domain/model/account/Balance.h"
+#include <domain/model/local-account/Balance.h>
 
 
 Balance::Balance(U32 initAmount) : amount(initAmount)

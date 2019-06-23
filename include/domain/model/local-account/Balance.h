@@ -1,9 +1,9 @@
 #ifndef H8ED04DAE_DC37_4869_8841_6961FB722E5F
 #define H8ED04DAE_DC37_4869_8841_6961FB722E5F
 
-#include "pub/base/Types.h"
-#include "pub/base/Keywords.h"
-#include "domain/model/base/ValueObject.h"
+#include <pub/base/Types.h>
+#include <pub/base/Keywords.h>
+#include <domain/model/base/ValueObject.h>
 
 struct Balance : ValueObject
 {

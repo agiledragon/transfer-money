@@ -1,4 +1,4 @@
-#include "domain/model/base/Entity.h"
+#include <domain/model/base/Entity.h>
 
 Entity::Entity(const std::string& id) : id(id)
 {

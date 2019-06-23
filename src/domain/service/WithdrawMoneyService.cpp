@@ -1,11 +1,11 @@
-#include "domain/service/WithdrawMoneyService.h"
-#include "domain/model/account/Account.h"
-#include "domain/model/account/AccountRepo.h"
-#include "domain/model/base/Role.h"
+#include <domain/model/local-account/LocalAccount.h>
+#include <domain/service/WithdrawMoneyService.h>
+#include <domain/model/base/Role.h>
+#include <domain/model/local-account/LocalAccountRepo.h>
 
 WithdrawMoneyService::WithdrawMoneyService()
 {
-	repo = getAccountRepo();
+	repo = getLocalAccountRepo();
 }
 
 void WithdrawMoneyService::exec(const std::string& accountId, U32 amount)

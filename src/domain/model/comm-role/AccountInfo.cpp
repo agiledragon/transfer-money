@@ -1,4 +1,4 @@
-#include "domain/model/account/AccountInfo.h"
+#include <domain/model/comm-role/AccountInfo.h>
 
 
 AccountInfo::AccountInfo(const std::string& accountId) : id(accountId)

@@ -1,9 +1,10 @@
-#include "app/service/AccountApi.h"
+#include <app/service/AccountApi.h>
 
 
 AccountApi::AccountApi()
 : accountService(AccountService()), withdrawMoneyService(WithdrawMoneyService())
 , transferMoneyToLocalService(TransferMoneyToLocalService())
+, transferMoneyToRemoteService(TransferMoneyToRemoteService())
 , transferMoneyService(TransferMoneyService())
 {
 
@@ -34,6 +35,11 @@ U32 AccountApi::getAmount(const std::string& accountId)
 void AccountApi::transferMoneyToLocal(const std::string& fromId, const std::string& toId, U32 amount)
 {
 	transferMoneyToLocalService.exec(fromId, toId, amount);
+}
+
+void AccountApi::transferMoneyToRemote(const std::string& fromId, const std::string& toId, U32 amount)
+{
+	transferMoneyToRemoteService.exec(fromId, toId, amount);
 }
 
 std::string AccountApi::generateAccountId(const std::string& phoneNumber)

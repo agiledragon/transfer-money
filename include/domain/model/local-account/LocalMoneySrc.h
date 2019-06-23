@@ -2,17 +2,16 @@
 #define HBAE654BC_9A9A_4189_BD3A_3F6D4020FFF1
 
 
-#include "domain/model/base/Role.h"
-#include "pub/base/Types.h"
+#include <domain/model/comm-role/MoneySrc.h>
 
 struct AccountInfo;
 struct Balance;
 struct Phone;
-struct MoneyDest;
+struct LocalMoneyDest;
 
-struct MoneySrc : Role
+struct LocalMoneySrc : MoneySrc
 {
-	void transferMoneyTo(const MoneyDest& dst, U32 amount);
+	void transferMoneyTo(MoneyDest& dst, U32 amount);
 	U32 getAmount() const;
 
 private:

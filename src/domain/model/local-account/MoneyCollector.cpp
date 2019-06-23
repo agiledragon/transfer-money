@@ -1,13 +1,12 @@
-#include "domain/model/account/MoneyCollector.h"
-#include "domain/model/account/Balance.h"
-#include "domain/model/account/Phone.h"
-#include "pub/log/log.h"
+#include <domain/model/local-account/Balance.h>
+#include <domain/model/local-account/MoneyCollector.h>
+#include <domain/model/local-account/Phone.h>
 
 void MoneyCollector::withdraw(U32 amount)
 {
 	if (ROLE(Balance).get() < amount)
 	{
-		ERR_LOG("insufficient money!");
+		throw "insufficient money!";
 		return;
 	}
 	ROLE(Balance).decrease(amount);

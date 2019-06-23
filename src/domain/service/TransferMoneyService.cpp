@@ -1,16 +1,16 @@
-#include "domain/service/TransferMoneyService.h"
-#include "domain/model/account/Account.h"
-#include "domain/model/account/AccountRepo.h"
-#include "domain/model/base/Role.h"
-#include "domain/model/account/MoneySrc.h"
+#include <domain/model/local-account/LocalAccount.h>
+#include <domain/model/local-account/LocalMoneySrc.h>
+#include <domain/service/TransferMoneyService.h>
+#include <domain/model/base/Role.h>
+#include <domain/model/local-account/LocalAccountRepo.h>
 
 TransferMoneyService::TransferMoneyService()
 {
-	repo = getAccountRepo();
+	repo = getLocalAccountRepo();
 }
 
 U32 TransferMoneyService::getAmount(const std::string& accountId) const
 {
 	auto account = repo->get(accountId);
-	return SELF(*account, MoneySrc).getAmount();
+	return SELF(*account, LocalMoneySrc).getAmount();
 }
