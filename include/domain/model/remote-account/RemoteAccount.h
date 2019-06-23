@@ -4,9 +4,11 @@
 #include <domain/model/comm-role/AccountInfo.h>
 #include <domain/model/base/AggregateRoot.h>
 #include <domain/model/remote-account/RemoteMoneyDest.h>
+#include <domain/model/remote-account/RemoteMoneySrc.h>
 
 struct RemoteAccount : AggregateRoot
 			   , RemoteMoneyDest
+			   , RemoteMoneySrc
 			   , private AccountInfo
 {
 	RemoteAccount(const std::string& accountId);

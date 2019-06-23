@@ -117,3 +117,10 @@ TEST_F(TestAccount, transfer_money_to_remote)
 	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 }
 
+TEST_F(TestAccount, transfer_money_from_remote)
+{
+	const U32 AMOUNT = 1500;
+	api->transferMoneyFromRemote(lucyAccountId, jimAccountId, AMOUNT);
+	ASSERT_EQ(JIM_INIT_AMOUNT + AMOUNT, api->getAmount(jimAccountId));
+}
+

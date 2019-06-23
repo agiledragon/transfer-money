@@ -7,11 +7,11 @@
 struct AccountInfo;
 struct Balance;
 struct Phone;
-struct LocalMoneyDest;
+struct MoneyDest;
 
 struct LocalMoneySrc : MoneySrc
 {
-	void transferMoneyTo(MoneyDest& dst, U32 amount);
+	OVERRIDE(void transferMoneyTo(MoneyDest& dst, U32 amount));
 	U32 getAmount() const;
 
 private:

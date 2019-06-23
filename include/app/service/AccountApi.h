@@ -7,6 +7,7 @@
 #include <domain/service/WithdrawMoneyService.h>
 #include <domain/service/TransferMoneyToLocalService.h>
 #include <domain/service/TransferMoneyToRemoteService.h>
+#include <domain/service/TransferMoneyFromRemoteService.h>
 #include <domain/service/TransferMoneyService.h>
 #include <string>
 
@@ -20,6 +21,7 @@ struct AccountApi
 	U32 getAmount(const std::string& accountId);
 	void transferMoneyToLocal(const std::string& fromId, const std::string& toId, U32 amount);
 	void transferMoneyToRemote(const std::string& fromId, const std::string& toId, U32 amount);
+	void transferMoneyFromRemote(const std::string& fromId, const std::string& toId, U32 amount);
 
 private:
 	std::string generateAccountId(const std::string& phoneNumber);
@@ -29,6 +31,7 @@ private:
 	WithdrawMoneyService withdrawMoneyService;
 	TransferMoneyToLocalService transferMoneyToLocalService;
 	TransferMoneyToRemoteService transferMoneyToRemoteService;
+	TransferMoneyFromRemoteService transferMoneyFromRemoteService;
 	TransferMoneyService transferMoneyService;
 };
 

@@ -5,6 +5,7 @@ AccountApi::AccountApi()
 : accountService(AccountService()), withdrawMoneyService(WithdrawMoneyService())
 , transferMoneyToLocalService(TransferMoneyToLocalService())
 , transferMoneyToRemoteService(TransferMoneyToRemoteService())
+, transferMoneyFromRemoteService(TransferMoneyFromRemoteService())
 , transferMoneyService(TransferMoneyService())
 {
 
@@ -41,6 +42,12 @@ void AccountApi::transferMoneyToRemote(const std::string& fromId, const std::str
 {
 	transferMoneyToRemoteService.exec(fromId, toId, amount);
 }
+
+void AccountApi::transferMoneyFromRemote(const std::string& fromId, const std::string& toId, U32 amount)
+{
+	transferMoneyFromRemoteService.exec(fromId, toId, amount);
+}
+
 
 std::string AccountApi::generateAccountId(const std::string& phoneNumber)
 {

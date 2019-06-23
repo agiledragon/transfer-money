@@ -10,8 +10,8 @@ struct AccountInfo;
 
 struct RemoteMoneyDest : MoneyDest
 {
-	void transferMoneyFrom(const std::string& fromId, U32 amount);
-	std::string getAccountId() const;
+	OVERRIDE(void transferMoneyFrom(const std::string& fromId, U32 amount));
+	OVERRIDE(std::string getAccountId() const);
 
 private:
 	USE_ROLE(AccountInfo);
