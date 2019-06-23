@@ -12,7 +12,6 @@ struct Phone;
 struct MoneyCollector : Role
 {
 	void withdraw(U32 amount);
-	U32 getAmount() const;
 
 private:
 	USE_ROLE(Balance);

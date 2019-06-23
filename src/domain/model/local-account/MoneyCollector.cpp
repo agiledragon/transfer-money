@@ -12,8 +12,3 @@ void MoneyCollector::withdraw(U32 amount)
 	ROLE(Balance).decrease(amount);
 	ROLE(Phone).sendWithdrawMsg(amount);
 }
-
-U32 MoneyCollector::getAmount() const
-{
-	return ROLE(Balance).get();
-}

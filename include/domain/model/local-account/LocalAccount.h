@@ -19,7 +19,9 @@ struct LocalAccount : AggregateRoot
 			   , private Balance
 			   , private Phone
 {
-	LocalAccount(const std::string& accountId, const std::string& phoneNumber, U32 initialAmount);
+	LocalAccount(const std::string& accountId,
+			const std::string& phoneNumber,
+			U32 initialAmount);
 
 private:
 	IMPL_ROLE(AccountInfo);
