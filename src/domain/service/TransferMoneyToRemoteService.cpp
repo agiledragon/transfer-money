@@ -13,6 +13,6 @@ void TransferMoneyToRemoteService::exec(const std::string& fromId, const std::st
 {
 	auto fromAccount = repo->get(fromId);
 	auto toAccount = new RemoteAccount(toId);
-	SELF(*fromAccount, LocalMoneySrc).transferMoneyTo(SELF(*toAccount, RemoteMoneyDest), amount);
+	SELF(*fromAccount, MoneySrc).transferMoneyTo(SELF(*toAccount, MoneyDest), amount);
 	delete toAccount;
 }

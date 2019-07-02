@@ -10,7 +10,7 @@ struct AccountService
 {
 	AccountService();
 
-	std::string createAccount(const std::string& manId, const std::string& phoneNumber, U32 initAmount);
+	std::string createAccount(const std::string& accountId, const std::string& phoneNumber, U32 initAmount);
 	void destroyAccount(const std::string& accountId);
 
 private:

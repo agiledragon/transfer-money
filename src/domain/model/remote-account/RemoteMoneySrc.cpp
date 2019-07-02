@@ -4,9 +4,9 @@
 #include <domain/model/remote-account/RemoteAccountProvider.h>
 
 
-void RemoteMoneySrc::transferMoneyTo(MoneyDest& dst, U32 amount)
+void RemoteMoneySrc::transferMoneyTo(MoneyDest& dest, U32 amount)
 {
-	dst.transferMoneyFrom(ROLE(AccountInfo).getAccountId(), amount);
+	dest.transferMoneyFrom(ROLE(AccountInfo).getAccountId(), amount);
 	Response ok{false};
 	sendProtocolResponse(ok);
 }

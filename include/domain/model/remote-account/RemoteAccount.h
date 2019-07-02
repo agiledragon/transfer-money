@@ -7,8 +7,8 @@
 #include <domain/model/remote-account/RemoteMoneySrc.h>
 
 struct RemoteAccount : AggregateRoot
-			   , RemoteMoneyDest
 			   , RemoteMoneySrc
+			   , RemoteMoneyDest
 			   , private AccountInfo
 {
 	RemoteAccount(const std::string& accountId);

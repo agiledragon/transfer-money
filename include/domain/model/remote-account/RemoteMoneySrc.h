@@ -9,7 +9,7 @@ struct MoneyDest;
 
 struct RemoteMoneySrc : MoneySrc
 {
-	OVERRIDE(void transferMoneyTo(MoneyDest& dst, U32 amount));
+	OVERRIDE(void transferMoneyTo(MoneyDest& dest, U32 amount));
 
 private:
 	USE_ROLE(AccountInfo);

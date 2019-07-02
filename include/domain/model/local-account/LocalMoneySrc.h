@@ -11,7 +11,7 @@ struct MoneyDest;
 
 struct LocalMoneySrc : MoneySrc
 {
-	OVERRIDE(void transferMoneyTo(MoneyDest& dst, U32 amount));
+	OVERRIDE(void transferMoneyTo(MoneyDest& dest, U32 amount));
 	U32 getAmount() const;
 
 private:

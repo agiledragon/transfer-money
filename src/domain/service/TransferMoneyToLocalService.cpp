@@ -12,5 +12,5 @@ void TransferMoneyToLocalService::exec(const std::string& fromId, const std::str
 {
 	auto fromAccount = repo->get(fromId);
 	auto toAccount = repo->get(toId);
-	SELF(*fromAccount, LocalMoneySrc).transferMoneyTo(SELF(*toAccount, LocalMoneyDest), amount);
+	SELF(*fromAccount, MoneySrc).transferMoneyTo(SELF(*toAccount, MoneyDest), amount);
 }

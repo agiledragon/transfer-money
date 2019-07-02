@@ -10,7 +10,7 @@ struct MoneyDest;
 
 struct MoneySrc : Role
 {
-	ABSTRACT(void transferMoneyTo(MoneyDest& dst, U32 amount));
+	ABSTRACT(void transferMoneyTo(MoneyDest& dest, U32 amount));
 };
 
 
