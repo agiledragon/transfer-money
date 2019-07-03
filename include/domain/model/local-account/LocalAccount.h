@@ -12,12 +12,12 @@
 
 
 struct LocalAccount : AggregateRoot
-			   , MoneyCollector
-			   , LocalMoneySrc
-			   , LocalMoneyDest
-			   , private AccountInfo
-			   , private Balance
-			   , private Phone
+			   	    , MoneyCollector
+					, LocalMoneySrc
+					, LocalMoneyDest
+					, private AccountInfo
+					, private Balance
+					, private Phone
 {
 	LocalAccount(const std::string& accountId,
 			const std::string& phoneNumber,
