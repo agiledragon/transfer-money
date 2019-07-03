@@ -1,12 +1,12 @@
 #include <domain/model/comm-role/AccountInfo.h>
 
 
-AccountInfo::AccountInfo(const std::string& accountId) : Entity(accountId)
+AccountInfo::AccountInfo(const std::string& accountId) : id(accountId)
 {
 
 }
 
 std::string AccountInfo::getAccountId() const
 {
-	return getId();
+	return id;
 }

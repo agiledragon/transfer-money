@@ -11,6 +11,9 @@ struct AccountInfo : Entity
 	AccountInfo(const std::string& accountId);
 
 	std::string getAccountId() const;
+
+private:
+	std::string id;
 };
 
 

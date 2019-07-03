@@ -31,7 +31,7 @@ namespace
 		{
 			for (auto a : accounts)
 			{
-				if (a->getId() == account->getId())
+				if (a == account)
 				{
 					remove(account->getId());
 					add(account);

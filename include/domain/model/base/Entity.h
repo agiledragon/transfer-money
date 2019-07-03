@@ -5,14 +5,7 @@
 
 struct Entity
 {
-	Entity(const std::string& id);
 
-	bool operator==(const Entity* rhs);
-	bool operator!=(const Entity* rhs);
-	std::string getId() const;
-
-private:
-    std::string id;
 };
 
 

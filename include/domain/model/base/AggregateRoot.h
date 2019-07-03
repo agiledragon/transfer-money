@@ -6,7 +6,15 @@
 
 struct AggregateRoot : Entity
 {
-	AggregateRoot(const std::string& id) : Entity(id) {}
+	AggregateRoot(const std::string& id);
+
+	bool operator==(const AggregateRoot* rhs);
+	bool operator!=(const AggregateRoot* rhs);
+	std::string getId() const;
+
+private:
+	std::string id;
 };
+
 
 #endif
