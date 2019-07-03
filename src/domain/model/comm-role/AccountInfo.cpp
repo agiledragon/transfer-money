@@ -1,17 +1,12 @@
 #include <domain/model/comm-role/AccountInfo.h>
 
 
-AccountInfo::AccountInfo(const std::string& accountId) : id(accountId)
+AccountInfo::AccountInfo(const std::string& accountId) : Entity(accountId)
 {
 
-}
-
-bool AccountInfo::operator==(ValueObject* rhs)
-{
-	return id == dynamic_cast<AccountInfo*>(rhs)->id;
 }
 
 std::string AccountInfo::getAccountId() const
 {
-	return id;
+	return getId();
 }

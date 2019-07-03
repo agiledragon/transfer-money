@@ -3,19 +3,14 @@
 
 #include <pub/base/Types.h>
 #include <pub/base/Keywords.h>
-#include <domain/model/base/ValueObject.h>
+#include <domain/model/base/Entity.h>
 #include <string>
 
-struct AccountInfo : ValueObject
+struct AccountInfo : Entity
 {
 	AccountInfo(const std::string& accountId);
 
-	OVERRIDE(bool operator==(ValueObject* rhs));
-
 	std::string getAccountId() const;
-
-private:
-	std::string id;
 };
 
 
