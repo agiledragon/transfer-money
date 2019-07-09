@@ -12,7 +12,7 @@
 
 
 struct LocalAccount : AggregateRoot
-			   	    , MoneyCollector
+					, MoneyCollector
 					, LocalMoneySrc
 					, LocalMoneyDest
 					, private AccountInfo

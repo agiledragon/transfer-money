@@ -7,7 +7,7 @@
 #include <domain/model/remote-account/RemoteMoneySrc.h>
 
 struct RemoteAccount : AggregateRoot
-			   	     , RemoteMoneySrc
+					 , RemoteMoneySrc
 					 , RemoteMoneyDest
 					 , private AccountInfo
 {
