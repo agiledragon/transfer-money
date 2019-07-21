@@ -1,7 +1,7 @@
 #include <domain/model/remote-account/RemoteAccountProvider.h>
 
 
-void sendTransferToProtocaMsg(const std::string& fromId, const std::string& toId, U32 amount)
+void sendTransferToProtocolMsg(const std::string& fromId, const std::string& toId, U32 amount)
 {
 
 }

@@ -10,7 +10,7 @@ struct Response
 	bool isFailed;
 };
 
-void sendTransferToProtocaMsg(const std::string& fromId, const std::string& toId, U32 amount);
+void sendTransferToProtocolMsg(const std::string& fromId, const std::string& toId, U32 amount);
 Response waitProtocolResp();
 void sendProtocolResponse(Response resp);
 
