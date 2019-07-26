@@ -7,7 +7,6 @@ void MoneyCollector::withdraw(U32 amount)
 	if (ROLE(Balance).get() < amount)
 	{
 		throw "insufficient money!";
-		return;
 	}
 	ROLE(Balance).decrease(amount);
 	ROLE(Phone).sendWithdrawMsg(amount);

@@ -10,7 +10,6 @@ void LocalMoneySrc::transferMoneyTo(MoneyDest& dest, U32 amount)
 	if (ROLE(Balance).get() < amount)
 	{
 		throw "insufficient money!";
-		return;
 	}
 	dest.transferMoneyFrom(ROLE(AccountInfo).getAccountId(), amount);
 	ROLE(Balance).decrease(amount);
