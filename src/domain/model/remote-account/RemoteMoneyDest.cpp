@@ -8,7 +8,7 @@ void RemoteMoneyDest::transferMoneyFrom(const std::string& fromId, U32 amount)
 	Response resp = waitProtocolResp();
 	if (resp.isFailed)
 	{
-		throw "transfer money to remote fail";
+		throw "transfer money to remote fail!";
 	}
 
 }
