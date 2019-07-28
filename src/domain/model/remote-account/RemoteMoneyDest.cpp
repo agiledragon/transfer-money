@@ -5,8 +5,8 @@
 void RemoteMoneyDest::transferMoneyFrom(const std::string& fromId, U32 amount)
 {
 	sendTransferToProtocolMsg(fromId, ROLE(AccountInfo).getAccountId(), amount);
-	Response resp = waitProtocolResp();
-	if (resp.isFailed)
+	Response ok = waitProtocolResp();
+	if (ok.isFailed)
 	{
 		throw "transfer money to remote fail!";
 	}

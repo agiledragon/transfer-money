@@ -93,18 +93,17 @@ protected:
 	FakeAccountRepo* accountRepo;
 	const U32 JIM_INIT_AMOUNT{10000};
 	const U32 LUCY_INIT_AMOUNT{5000};
+	const U32 AMOUNT{1500};
 };
 
 TEST_F(TestAccount, withdraw_money)
 {
-	const U32 AMOUNT = 1500;
 	api->withdrawMoney(jimAccountId, AMOUNT);
 	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 }
 
 TEST_F(TestAccount, transfer_money_to_local)
 {
-	const U32 AMOUNT = 1500;
 	api->transferMoneyToLocal(jimAccountId, lucyAccountId, AMOUNT);
 	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 	ASSERT_EQ(LUCY_INIT_AMOUNT + AMOUNT, api->getAmount(lucyAccountId));
@@ -112,14 +111,12 @@ TEST_F(TestAccount, transfer_money_to_local)
 
 TEST_F(TestAccount, transfer_money_to_remote)
 {
-	const U32 AMOUNT = 1500;
 	api->transferMoneyToRemote(jimAccountId, lucyAccountId, AMOUNT);
 	ASSERT_EQ(JIM_INIT_AMOUNT - AMOUNT, api->getAmount(jimAccountId));
 }
 
 TEST_F(TestAccount, transfer_money_from_remote)
 {
-	const U32 AMOUNT = 1500;
 	api->transferMoneyFromRemote(lucyAccountId, jimAccountId, AMOUNT);
 	ASSERT_EQ(JIM_INIT_AMOUNT + AMOUNT, api->getAmount(jimAccountId));
 }
